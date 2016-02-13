@@ -1,0 +1,25 @@
+sudo: false
+language: node_js
+cache:
+  directories:
+  - node_modules
+notifications:
+  email: false
+node_js:
+- '4'
+before_install:
+- npm i -g npm@^2.0.0
+before_script:
+- npm prune
+after_success:
+- npm run semantic-release
+branches:
+  except:
+  - /^v\d+\.\d+\.\d+$/
+deploy:
+  provider: heroku
+  api_key:
+    secure: h6DQ7saHzOenrvtQ4s0/+5mvdm24ac73eqXJXL2vsZ1XKKhZy9ntetfymcjyQXSbJnCgNxPFI1ExO4oclsx6Bb+2kUqTVZpOLzFeBwM4AQVcgm4WhJMvmjFUaO7KxufDvcEup446mBdC1KMRWnJUMKBfzfQTbI3IBe8c+YKvEgSM5MjM0IBy4wa0OEqEObB1/9A7RKNeoJ9v1C9CfPJ/HBE2sL5DFiZRxWsBBdlXw1/twbzAC3ah8vfkEbJd8XrIQMTZH9qcqJNDMTsJ4x7KFAAG0SUH2IDYfX3RJPZHlz5kN7qiNuOjJEVJ4/ZaiHj3BgXEhwIaAtCsCzd7ALu/LxY7xWLkLXLkWs2E43A+CScPLPpL+ww+obGY4C8w7pJJhhsBZzRGamcgW1QfW6R5FdCroRhrq+4GRoqFVc+yL0sFlw864FOx99NIJo5s7L3ltq5ljAME5JJwFGPmPAzej+nr9ezGS50SdkMZ8qJ3Hab9ArkuyBdmf46Ljcua6GrQ7zba1oaZw7HCtV86S7FMMaxKUOaTsU+Ce0iSjMYcF9Haw1yDkwUv8AnSbLLurtnb4ZR1P2sdRcSsXunKvOgfT7I0h8F5lFB+kbfbyQ1ORPPx9aSCH6RfxZp8CBUXyrUxsppd8TWiDOpdVamv0MR+JY/AxHEUwldsUQn+lpXiPZ8=
+  app: stormy-ravine-31564
+  on:
+    repo: remy/release-test

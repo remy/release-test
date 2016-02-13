@@ -1,14 +1,14 @@
 {
   "name": "@remy/release-test",
-  "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo 'done'",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/remy/release-test.git"
+    "url": "https://github.com/remy/release-test.git"
   },
   "keywords": [],
   "author": "",
@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/remy/release-test/issues"
   },
-  "homepage": "https://github.com/remy/release-test#readme"
+  "homepage": "https://github.com/remy/release-test#readme",
+  "devDependencies": {
+    "semantic-release": "^4.3.5"
+  }
 }
